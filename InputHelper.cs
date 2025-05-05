@@ -44,7 +44,7 @@ public class InputHelper
 
     public static int GetQuantityInput()
     {
-        Console.WriteLine("\n\nPlease insert number of minutes.)\n\n");
+        Console.WriteLine("\n\nPlease insert number of minutes or type 0 to return to main menu.\n\n");
 
         string quantityInput = Console.ReadLine();
         
@@ -57,5 +57,22 @@ public class InputHelper
         }
 
         return Convert.ToInt32(quantityInput);
+    }
+
+    public static int GetIdInput()
+    {
+        Console.WriteLine("\n\nPlease insert the id of the record you want to delete or type 0 to return to main menu.\\n\\n\")\n\n");
+
+        string idInput = Console.ReadLine();
+
+        if (idInput == "0") GetUserInput();
+
+        while (!Int32.TryParse(idInput, out _) || Convert.ToInt32(idInput) < 1)
+        {
+            Console.WriteLine("\n\nInvalid number. Try again");
+            idInput = Console.ReadLine();
+        }
+
+        return Convert.ToInt32(idInput);
     }
 }

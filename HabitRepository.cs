@@ -69,6 +69,21 @@ public class HabitRepository
             
             connection.Close();
         }
+    }
 
+    public static void Delete()
+    {
+        int inputId = GetIdInput();
+
+        using var connection = new SqliteConnection(ConnectionString);
+
+        {
+            connection.Open();
+            var command = connection.CreateCommand();
+            command.CommandText = $"DELETE FROM habit WHERE id={inputId}";
+
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

@@ -15,6 +15,7 @@ class InputLoop
             Console.WriteLine("\nType 0 to Close Application.");
             Console.WriteLine("\nType 1 to View All Records.");
             Console.WriteLine("\nType 2 to Insert new habit.");
+            Console.WriteLine("\nType 3 to Delete a habit.");
         
         
             string userInput = Console.ReadLine();
@@ -29,6 +30,9 @@ class InputLoop
                     break;
                 case "2":
                     Insert();
+                    break;
+                case "3":
+                    Delete();
                     break;
                 default:
                     Console.WriteLine("\nInvalid Command. Please type a number from 0 to 4.\n");
